@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
@@ -36,11 +38,19 @@ const userSlice = createSlice({
 });
 
   
-const { addUser, deleteUser, reseteUsers } = userSlice.actions;   
+export const {   addUser,   deleteUser,   reseteUsers } = userSlice.actions;   
 
-export default configureStore({
+export const store = configureStore({
   reducer: {
     user: userSlice.reducer,
   },    
   
 }); 
+
+type RootState = ReturnType<typeof store.getState>; 
+
+type Dispatch = typeof store.dispatch;
+
+export const useAppDispatch = useDispatch.withTypes<Dispatch>();
+
+export const useAppSelector = useSelector.withTypes<RootState>();
