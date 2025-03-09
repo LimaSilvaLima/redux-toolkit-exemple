@@ -27,9 +27,9 @@ export const NewUserForm = () => {
   return (
     <div>
       <p>User name</p>
-      <input ref={inputRefName.current?.value} type="text" />
+      <input ref={inputRefName} type="text" />
       <p>User age</p>
-      <input ref={inputRefAge.current?.value} type="text" />
+      <input ref={inputRefAge} type="text" />
       <button onClick={handleSubmit}>Adicionar User</button>
       <button onClick={resetAllUssers}>Reset Users</button>
     </div>
